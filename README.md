@@ -20,7 +20,7 @@ My solutions to algorithmic contests and problem sets, written in C++ and Python
     └── leetcode/             weekly (contest-N) and biweekly contests
 ```
 
-Within a contest folder, `a`, `b`, `c`, ... match the problem order of the round. The file extension shows the language used (`.py` or `.cpp`). Some CSES problems have several approaches (e.g. `*_sol_I`, `*_sol_II`).
+Within a contest folder, `a`, `b`, `c`, ... match the problem order of the round. The file extension shows the language used (`.py` or `.cpp`). Some CSES problems have several approaches (e.g. `*_sol_i`, `*_sol_ii`).
 
 ## Running
 

@@ -1,8 +1,8 @@
 import unittest
 from random import randint
-from PrefixArray import PrefixArray
-from SegmentTree import SumSegmentTree
-from BinaryIndexedTree import BinaryIndexedTree
+from prefix_array import PrefixArray
+from segment_tree import SumSegmentTree
+from binary_indexed_tree import BinaryIndexedTree
 
 
 class TestPrefixSum(unittest.TestCase):

@@ -1,6 +1,6 @@
 import unittest
 from random import randint
-from BinarySearchTree import BinarySearchTree
+from binary_search_tree import BinarySearchTree
 
 
 class testBST(unittest.TestCase):

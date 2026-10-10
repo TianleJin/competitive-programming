@@ -1,6 +1,6 @@
 import unittest
 from random import randint
-from minHeap import minHeap
+from min_heap import minHeap
 
 
 class testMinHeap(unittest.TestCase):
