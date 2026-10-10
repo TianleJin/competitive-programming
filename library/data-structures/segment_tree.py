@@ -1,5 +1,4 @@
 class TreeNode:
-
     def __init__(self, val, lo, hi):
         self.val = val
         self.lo = lo
@@ -9,11 +8,10 @@ class TreeNode:
 
 
 class SumSegmentTree:
-
     def __init__(self, arr):
         self.n = len(arr)
         self.root = self.build(arr, 0, self.n - 1)
-    
+
     def build(self, arr, lo, hi):
         if lo == hi:
             return TreeNode(arr[lo], lo, hi)
@@ -24,7 +22,7 @@ class SumSegmentTree:
         root.left = left_child
         root.right = right_child
         return root
-    
+
     def update(self, idx, val):
         def search(root):
             if root.lo == root.hi:
@@ -39,6 +37,7 @@ class SumSegmentTree:
                 root.val -= root.right.val
                 search(root.right)
                 root.val += root.right.val
+
         search(self.root)
 
     def query(self, lo, hi):
@@ -52,4 +51,5 @@ class SumSegmentTree:
                 return tally(root.left, lo, hi)
             else:
                 return tally(root.left, lo, mid) + tally(root.right, mid + 1, hi)
-        return tally(self.root, lo, hi) 
+
+        return tally(self.root, lo, hi)

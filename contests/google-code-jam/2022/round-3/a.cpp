@@ -55,11 +55,9 @@ bool solve(int N, int K) {
             for (int i = 0; i < N; i++) {
                 cin >> a[i];
             }
-        }
-        else if (res == 1) {
+        } else if (res == 1) {
             return true;
-        }
-        else {
+        } else {
             return false;
         }
     }

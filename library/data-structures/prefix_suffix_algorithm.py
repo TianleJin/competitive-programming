@@ -22,7 +22,7 @@ class PrefixSuffixAlgorithm:
                     z[i] = r - l
                     r -= 1
         return z
-    
+
     @staticmethod
     def kmp(s):
         n = len(s)
@@ -37,9 +37,9 @@ class PrefixSuffixAlgorithm:
         return theta
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     s = input().strip()
     z = PrefixSuffixAlgorithm.zs(s)
     theta = PrefixSuffixAlgorithm.kmp(s)
-    print(" ".join(map(str, z)))
-    print(" ".join(map(str, theta)))
+    print(' '.join(map(str, z)))
+    print(' '.join(map(str, theta)))

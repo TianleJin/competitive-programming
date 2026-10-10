@@ -4,6 +4,7 @@ def parse():
     prices = [int(num) for num in input().strip().split()]
     return N, B, prices
 
+
 def solve(N, B, prices):
     prices.sort()
     cnt = 0
@@ -14,9 +15,10 @@ def solve(N, B, prices):
         cnt += 1
     return cnt
 
+
 # Number of test cases
 T = int(input())
 for t in range(1, T + 1):
     N, B, prices = parse()
     ans = solve(N, B, prices)
-    print("Case #{}: {}".format(t, ans))
+    print('Case #{}: {}'.format(t, ans))

@@ -1,7 +1,6 @@
-from math import gcd
 from fractions import Fraction
 from collections import defaultdict
-import random
+
 iintl = lambda: list(map(int, input().strip().split()))
 
 

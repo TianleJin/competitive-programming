@@ -1,5 +1,6 @@
 it = lambda: list(map(int, input().strip().split()))
 
+
 def solve():
     S = input().strip()
     assert len(S) == 3
@@ -10,6 +11,7 @@ def solve():
     elif S[0] == 'R' or S[1] == 'R' or S[2] == 'R':
         return 1
     return 0
+
 
 if __name__ == '__main__':
     ans = solve()

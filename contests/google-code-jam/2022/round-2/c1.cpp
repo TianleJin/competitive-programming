@@ -13,7 +13,8 @@ pair<long long, long long> target, children[mxn], sweets[mxn];
 bool dp[mxn][mxn];
 
 long long dist(pair<long long, long long> p1, pair<long long, long long> p2) {
-    return (p2.first - p1.first) * (p2.first - p1.first) + (p2.second - p1.second) * (p2.second - p1.second);
+    return (p2.first - p1.first) * (p2.first - p1.first) +
+           (p2.second - p1.second) * (p2.second - p1.second);
 }
 
 void solve(int tt) {
@@ -49,7 +50,8 @@ void solve(int tt) {
                         }
                         for (int l = 0; l < n; l++) {
                             if (j >> l & 1) {
-                                if (dist(children[k], sweets[l]) == best_dist && dp[i ^ 1 << k][j ^ 1 << l]) {
+                                if (dist(children[k], sweets[l]) == best_dist &&
+                                    dp[i ^ 1 << k][j ^ 1 << l]) {
                                     dp[i][j] = true;
                                 }
                             }
@@ -64,8 +66,8 @@ void solve(int tt) {
         cout << "Case #" << tt << ": IMPOSSIBLE\n";
         return;
     }
-   
-    cout << "Case #" << tt << ": POSSIBLE\n"; 
+
+    cout << "Case #" << tt << ": POSSIBLE\n";
 
     vector<pair<int, int>> ans;
     int i = (1 << n) - 1, j = (1 << n) - 1;
@@ -81,7 +83,8 @@ void solve(int tt) {
                 }
                 for (int l = 0; l < n && !found; l++) {
                     if (j >> l & 1) {
-                        if (dist(children[k], sweets[l]) == best_dist && dp[i ^ 1 << k][j ^ 1 << l]) {
+                        if (dist(children[k], sweets[l]) == best_dist &&
+                            dp[i ^ 1 << k][j ^ 1 << l]) {
                             ans.push_back({k + 1, l + 2});
                             i ^= 1 << k;
                             j ^= 1 << l;

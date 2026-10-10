@@ -3,9 +3,10 @@ from typing import List
 
 
 INF = float('inf')
+
+
 class Solution:
     def minimumOperations(self, nums: List[int], start: int, goal: int) -> int:
-        n = len(nums)
         dp = [INF] * 1001
         dp[start] = 0
         q = deque([start])

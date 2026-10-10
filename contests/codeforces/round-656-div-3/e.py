@@ -1,4 +1,5 @@
 from collections import deque, defaultdict
+
 it = lambda: list(map(int, input().strip().split()))
 
 
@@ -32,7 +33,7 @@ def solve():
         for y in undecided[x]:
             if not (x, y) in ans and not (y, x) in ans:
                 ans.add((x, y))
-    
+
     if len(ans) < m:
         print('NO')
     else:

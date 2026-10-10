@@ -12,7 +12,7 @@ for tt in range(1, T + 1):
 
         s1 = str(arr[i - 1])
         c1 = len(s1)
-        
+
         s2 = str(arr[i])
         c2 = len(s2)
 
@@ -20,7 +20,7 @@ for tt in range(1, T + 1):
             ans += 1
             arr[i] = int(s2 + '0')
             continue
-        
+
         l = min(c1, c2)
         if int(s2[:l]) < int(s1[:l]):
             ans += c1 - c2 + 1
@@ -42,5 +42,5 @@ for tt in range(1, T + 1):
             ext = '0' * (l - len(ext)) + ext
             ans += len(ext)
             arr[i] = int(s2 + ext)
-        
-    print("Case #{}: {}".format(tt, ans))
+
+    print('Case #{}: {}'.format(tt, ans))

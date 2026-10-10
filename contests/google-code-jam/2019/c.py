@@ -1,5 +1,3 @@
-import collections
-
 def solve(r, c):
     ban = [[set() for _ in range(c)] for _ in range(r)]
     for i in range(r):
@@ -19,9 +17,10 @@ def solve(r, c):
                 if g != 0:
                     ban[i - g][j + g].add((i, j))
                 g -= 1
-    
+
     ans = []
     vis = set()
+
     def dfs(i, j):
         ans.append((i, j))
         vis.add((i, j))
@@ -41,7 +40,7 @@ def solve(r, c):
                         next_ = (k, l)
         if next_ == (-1, -1):
             return False
-        
+
         dfs(*next_)
 
     dfs(r // 2, c // 2)
@@ -55,8 +54,8 @@ if __name__ == '__main__':
         r, c = int(r), int(c)
         ans = solve(r, c)
         if len(ans) != r * c:
-            print("Case #{}: IMPOSSIBLE".format(t))
+            print('Case #{}: IMPOSSIBLE'.format(t))
         else:
-            print("Case #{}: POSSIBLE".format(t))
+            print('Case #{}: POSSIBLE'.format(t))
             for i, j in ans:
                 print(i + 1, j + 1)

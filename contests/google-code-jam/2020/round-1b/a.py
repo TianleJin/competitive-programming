@@ -1,4 +1,5 @@
 from random import randint
+
 it = lambda: list(map(int, input().strip().split()))
 
 
@@ -74,7 +75,7 @@ def solve():
                 A.append('N')
                 continue
 
-    # check(''.join(A), X1, Y1) 
+    # check(''.join(A), X1, Y1)
     return ''.join(A)
 
 
@@ -83,6 +84,6 @@ if __name__ == '__main__':
     for tt in range(1, T + 1):
         ans = solve()
         print('Case #{}: {}'.format(tt, ans))
-    
+
     # for _ in range(1000):
     #     case()

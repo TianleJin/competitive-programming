@@ -1,7 +1,6 @@
-from collections import defaultdict
 it = lambda: list(map(int, input().strip().split()))
 INF = float('inf')
-MOD = 10 ** 9 + 7
+MOD = 10**9 + 7
 
 
 def solve():

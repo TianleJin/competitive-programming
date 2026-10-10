@@ -1,6 +1,5 @@
-from random import randint
 from math import log2
-from collections import defaultdict
+
 it = lambda: list(map(int, input().strip().split()))
 INF = float('inf')
 
@@ -43,10 +42,10 @@ def solve():
         i, val = it()
         update(segtree, N, n, i - 1, val)
         ans.append(query(segtree))
-    
+
     for v in ans:
         print(v)
 
-    
+
 if __name__ == '__main__':
     solve()

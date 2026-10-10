@@ -1,5 +1,3 @@
-from collections import deque, defaultdict
-from heapq import heapify, heappop, heappush
 it = lambda: list(map(int, input().strip().split()))
 
 
@@ -12,7 +10,7 @@ def solve():
     prefix[0] = F[0][0]
     for i in range(1, m):
         prefix[i] = prefix[i - 1] + F[i][0]
-    
+
     ans = 0
     for i in range(m):
         a, b = F[i]

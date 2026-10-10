@@ -8,15 +8,15 @@ def solve():
     for _ in range(K):
         r, c, v = it()
         grid[r - 1][c - 1] = v
-    
+
     dp = [[[-INF] * 4 for _ in range(C + 1)] for _ in range(R + 1)]
 
     for i in range(R + 1):
         dp[i][0][0] = 0
-    
+
     for j in range(C + 1):
         dp[0][j][0] = 0
-    
+
     for i in range(1, R + 1):
         for j in range(1, C + 1):
             for k in range(4):

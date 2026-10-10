@@ -1,13 +1,10 @@
-from math import ceil
-from collections import deque, defaultdict
-from heapq import heapify, heappop, heappush
 INF = float('inf')
 it = lambda: list(map(int, input().strip().split()))
 
 
 def output(l, r, v):
     print(l, r)
-    print(" ".join(map(str, v)))
+    print(' '.join(map(str, v)))
 
 
 def solve():

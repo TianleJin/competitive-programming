@@ -2,11 +2,11 @@ class Solution:
     def maxFrequency(self, nums: List[int], k: int) -> int:
         n = len(nums)
         nums.sort()
-        
+
         pref = [0] * (n + 1)
         for i in range(n):
             pref[i + 1] = pref[i] + nums[i]
-        
+
         ans = 0
         for i in range(n):
             lo = 0

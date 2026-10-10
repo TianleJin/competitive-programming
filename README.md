@@ -41,3 +41,12 @@ Tests for the data structures (run from their directory, since they import modul
 ```bash
 cd library/data-structures && python -m unittest
 ```
+
+## Code style
+
+Python is formatted and linted with [Ruff](https://docs.astral.sh/ruff/) (`ruff.toml`), C++ is formatted with [clang-format](https://clang.llvm.org/docs/ClangFormat.html) (`.clang-format`).
+
+```bash
+uvx ruff format . && uvx ruff check .
+git ls-files '*.cpp' | xargs uvx clang-format -i
+```

@@ -1,10 +1,11 @@
 from random import randint, random
 from collections import defaultdict
+
 it = lambda: list(map(int, input().strip().split()))
 
 
 def case():
-    N, G, M = randint(2, 10 ** 5), randint(1, 10 ** 5), randint(0, 10 ** 9)
+    N, G, M = randint(2, 10**5), randint(1, 10**5), randint(0, 10**9)
     print(N, G, M)
     for _ in range(G):
         print(randint(1, N), 'C' if random() < 0.5 else 'A')
@@ -12,7 +13,7 @@ def case():
 
 def solve():
     N, G, M = it()
-    
+
     cw = defaultdict(list)
     acw = defaultdict(list)
 
@@ -27,7 +28,7 @@ def solve():
             acw[e].append(i)
 
     cw_nearest = [None] * N
-    
+
     curr = 0
     while True:
         if curr in cw:
@@ -35,7 +36,7 @@ def solve():
         curr = (curr + 1) % N
         if curr == 0:
             break
-    
+
     if curr in cw:
         temp = curr
         last = curr
@@ -50,7 +51,7 @@ def solve():
             last = (last - 1) % N
             if last == temp:
                 break
-    
+
     acw_nearest = [None] * N
 
     curr = 0
@@ -60,7 +61,7 @@ def solve():
         curr = (curr - 1) % N
         if curr == 0:
             break
-    
+
     if curr in acw:
         temp = curr
         last = curr
@@ -75,7 +76,7 @@ def solve():
             last = (last + 1) % N
             if last == temp:
                 break
-    
+
     ans = [0] * G
     for i in range(N):
         add1 = False
@@ -100,7 +101,7 @@ def solve():
         if add2:
             for g in acw[acw_nearest[i]]:
                 ans[g] += 1
-                
+
     return ' '.join(map(str, ans))
 
 

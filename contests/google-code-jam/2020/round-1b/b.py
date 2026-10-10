@@ -1,18 +1,8 @@
 it = lambda: list(map(int, input().strip().split()))
 
 
-R = 10 ** 9 // 2
-TRY = [
-    [-R, R],
-    [0, R],
-    [R, R],
-    [-R, 0],
-    [0, 0],
-    [R, 0],
-    [-R, -R],
-    [0, -R],
-    [R, -R]
-]
+R = 10**9 // 2
+TRY = [[-R, R], [0, R], [R, R], [-R, 0], [0, 0], [R, 0], [-R, -R], [0, -R], [R, -R]]
 
 
 def query():
@@ -35,7 +25,7 @@ def query():
         return False
 
     # search for left boundary
-    lo = -(10 ** 9)
+    lo = -(10**9)
     hi = x
     while lo < hi:
         mid = (lo + hi) // 2
@@ -55,7 +45,7 @@ def query():
 
     # search for right boundary
     lo = x
-    hi = 10 ** 9
+    hi = 10**9
     while lo < hi:
         mid = (lo + hi + 1) // 2
         print(mid, y, flush=True)
@@ -72,10 +62,9 @@ def query():
             assert False
     right = lo
 
-
     # search for top boundary
     lo = y
-    hi = 10 ** 9
+    hi = 10**9
     while lo < hi:
         mid = (lo + hi + 1) // 2
         print(x, mid, flush=True)
@@ -92,8 +81,8 @@ def query():
             assert False
     top = lo
 
-    # search for bottom boundary 
-    lo = -(10 ** 9)
+    # search for bottom boundary
+    lo = -(10**9)
     hi = y
     while lo < hi:
         mid = (lo + hi) // 2
@@ -123,7 +112,7 @@ def query():
                 return False
             else:
                 continue
-    
+
 
 if __name__ == '__main__':
     T, _, _ = it()

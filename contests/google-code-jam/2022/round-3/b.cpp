@@ -7,7 +7,6 @@
 #include <assert.h>
 using namespace std;
 
-
 void solve(int tt) {
     int N, C;
     cin >> N >> C;
@@ -27,9 +26,11 @@ void solve(int tt) {
         vector<int> cnt(C);
         for (int j = i; j < i + N - 1; j++) {
             int idx = j % N;
-            bool was_good = cnt[p[idx]] == 0 || (a[p[idx]] <= cnt[p[idx]] && b[p[idx]] >= cnt[p[idx]]);
+            bool was_good =
+                cnt[p[idx]] == 0 || (a[p[idx]] <= cnt[p[idx]] && b[p[idx]] >= cnt[p[idx]]);
             cnt[p[idx]]++;
-            bool now_good = cnt[p[idx]] == 0 || (a[p[idx]] <= cnt[p[idx]] && b[p[idx]] >= cnt[p[idx]]);
+            bool now_good =
+                cnt[p[idx]] == 0 || (a[p[idx]] <= cnt[p[idx]] && b[p[idx]] >= cnt[p[idx]]);
             if (was_good && !now_good) {
                 good--;
             }
@@ -38,7 +39,7 @@ void solve(int tt) {
             }
             if (i != j && good == C) {
                 ans++;
-            } 
+            }
         }
     }
     cout << "Case #" << tt << ": " << ans << "\n";

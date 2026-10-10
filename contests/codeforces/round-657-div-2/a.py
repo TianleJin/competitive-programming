@@ -1,6 +1,5 @@
-from collections import deque, defaultdict
-from heapq import heapify, heappop, heappush
 it = lambda: list(map(int, input().strip().split()))
+
 
 def solve():
     p = 'abacaba'
@@ -10,7 +9,7 @@ def solve():
     cnt = 0
     for i in range(n):
         if i + 7 <= n:
-            if s[i:i + 7] == p:
+            if s[i : i + 7] == p:
                 cnt += 1
 
     if cnt > 1:
@@ -39,10 +38,10 @@ def solve():
                 ok1 = True
                 for j in range(max(0, i - 8), i + 7):
                     if j != i:
-                        if j + 7 <= n and ''.join(s[j:j + 7]) == p:
+                        if j + 7 <= n and ''.join(s[j : j + 7]) == p:
                             ok1 = False
                             break
-                
+
                 if not ok1:
                     for k in idx:
                         s[k] = '?'

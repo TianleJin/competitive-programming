@@ -1,9 +1,9 @@
-import random
 import sys
 
 T, N, Q = list(map(int, input().strip().split()))
 
 cnt = 0
+
 
 def query(i, j, k):
     global cnt
@@ -14,6 +14,7 @@ def query(i, j, k):
         sys.exit()
     return res
 
+
 def submit(ans):
     assert len(ans) == N
     print(*ans, flush=True)
@@ -21,6 +22,7 @@ def submit(ans):
     if res == -1:
         sys.exit()
     assert res == 1
+
 
 for tt in range(1, T + 1):
     ans = list(range(1, 3))

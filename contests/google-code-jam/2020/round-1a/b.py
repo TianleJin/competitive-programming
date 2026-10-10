@@ -1,11 +1,3 @@
-from sys import setrecursionlimit
-from math import sqrt, ceil, factorial, gcd
-from collections import defaultdict as ddt 
-from collections import deque 
-from bisect import bisect_left, bisect_right
-from heapq import heapify, heappush, heappop, nlargest, nsmallest
-from itertools import permutations, combinations, zip_longest
-
 istr = lambda: input().strip()
 istrl = lambda: input().strip().split()
 iint = lambda: int(input())
@@ -17,7 +9,7 @@ def solve(N):
     N -= rows
     use = [0] * rows
     for row in range(rows - 1, -1, -1):
-        if (N >= (1 << row) - 1):
+        if N >= (1 << row) - 1:
             use[row] = 1
             N -= (1 << row) - 1
     rows += N
@@ -40,9 +32,8 @@ def solve(N):
                 print(row + 1, row + 1)
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     T = int(input())
     for t in range(1, T + 1):
-        print("Case #{}:".format(t))
+        print('Case #{}:'.format(t))
         solve(iint())
-        

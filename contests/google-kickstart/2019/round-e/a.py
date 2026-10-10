@@ -1,4 +1,5 @@
 from collections import defaultdict
+
 it = lambda: list(map(int, input().strip().split()))
 
 
@@ -38,7 +39,7 @@ def solve():
     for u in range(N):
         x = find(par, u)
         groups[x] += 1
-    
+
     ans = (len(groups) - 1) << 1
     for c in groups.values():
         ans += c - 1

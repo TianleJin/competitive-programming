@@ -29,10 +29,10 @@ using namespace std;
 typedef long long ll;
 typedef pair<int, int> pii;
 
-const int dx4[] = { -1, 0, 1, 0 };
-const int dy4[] = { 0, -1, 0, 1 };
-const int dx8[] = { -1, -1, -1, 0, 0, 1, 1, 1 };
-const int dy8[] = { -1, 0, 1, -1, 1, -1, 0, 1 };
+const int dx4[] = {-1, 0, 1, 0};
+const int dy4[] = {0, -1, 0, 1};
+const int dx8[] = {-1, -1, -1, 0, 0, 1, 1, 1};
+const int dy8[] = {-1, 0, 1, -1, 1, -1, 0, 1};
 
 // https://cses.fi/problemset/task/1684/
 const int mxn = 100001;
@@ -42,59 +42,57 @@ unordered_set<int> constraints[2 * mxn];
 bool must[2 * mxn];
 
 int main() {
-	ios::sync_with_stdio(false);
-	cin.tie(0);
-	cin >> n >> m;
-	for (int i = 1; i <= n; i++) {
-		char c1, c2;
-		int t1, t2, t3, t4;
-		cin >> c1 >> t1 >> c2 >> t2;
-		fst[i] = t3 = c1 == '+' ? m + t1 : m - t1;
-		snd[i] = t4 = c2 == '+' ? m + t2 : m - t2;
-		if (constraints[t3].find(2 * m - t4) != constraints[t3].end()) {
-			must[t3] = true;
-		}
-		if (constraints[t4].find(2 * m - t3) != constraints[t4].end()) {
-			must[t4] = true;
-		}
-		constraints[t3].insert(t4);
-		constraints[t4].insert(t3);
-	}
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+    cin >> n >> m;
+    for (int i = 1; i <= n; i++) {
+        char c1, c2;
+        int t1, t2, t3, t4;
+        cin >> c1 >> t1 >> c2 >> t2;
+        fst[i] = t3 = c1 == '+' ? m + t1 : m - t1;
+        snd[i] = t4 = c2 == '+' ? m + t2 : m - t2;
+        if (constraints[t3].find(2 * m - t4) != constraints[t3].end()) {
+            must[t3] = true;
+        }
+        if (constraints[t4].find(2 * m - t3) != constraints[t4].end()) {
+            must[t4] = true;
+        }
+        constraints[t3].insert(t4);
+        constraints[t4].insert(t3);
+    }
 
-	for (int i = 0; i < m; i++) {
-		if (must[i] && must[2 * m - i]) {
-			cout << "IMPOSSIBLE" << endl; return 0;
-		}
-	}
+    for (int i = 0; i < m; i++) {
+        if (must[i] && must[2 * m - i]) {
+            cout << "IMPOSSIBLE" << endl;
+            return 0;
+        }
+    }
 
-	bool ok = true;
-	for (int i = 1; i <= n; i++) {
-		if (must[fst[i]] || must[snd[i]]) {
-			continue;
-		}
-		else if (!must[2 * m - fst[i]]) {
-			must[fst[i]] = true;
-			continue;
-		}
-		else if (!must[2 * m - snd[i]]) {
-			must[snd[i]] = true;
-			continue;
-		}
-		else {
-			ok = false;
-		}
-	}
+    bool ok = true;
+    for (int i = 1; i <= n; i++) {
+        if (must[fst[i]] || must[snd[i]]) {
+            continue;
+        } else if (!must[2 * m - fst[i]]) {
+            must[fst[i]] = true;
+            continue;
+        } else if (!must[2 * m - snd[i]]) {
+            must[snd[i]] = true;
+            continue;
+        } else {
+            ok = false;
+        }
+    }
 
-	if (!ok) {
-		cout << "IMPOSSIBLE" << endl; return 0;
-	}
+    if (!ok) {
+        cout << "IMPOSSIBLE" << endl;
+        return 0;
+    }
 
-	for (int i = m - 1; i >= 0; i--) {
-		if (must[i]) {
-			cout << '-' << ' ';
-		}
-		else {
-			cout << '+' << ' ';
-		}
-	}
+    for (int i = m - 1; i >= 0; i--) {
+        if (must[i]) {
+            cout << '-' << ' ';
+        } else {
+            cout << '+' << ' ';
+        }
+    }
 }

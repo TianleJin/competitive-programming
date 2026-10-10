@@ -1,18 +1,13 @@
-from math import sqrt, log2, ceil, floor, sin, cos, tan, pi
-from collections import defaultdict, deque, Counter
-from heapq import heapify, heappush, heappop, heappushpop
-from functools import lru_cache
-from itertools import permutations, combinations, product
-from random import random, randint, choice, sample
-from bisect import bisect_left, bisect_right, insort
+from collections import defaultdict
+
 it = lambda: list(map(int, input().strip().split()))
 INF = float('inf')
 
 
 def case():
     print(1)
-    print(10 ** 5, 100, 200)
-    print(' '.join(map(str, list(range(1, 10 ** 5)))))
+    print(10**5, 100, 200)
+    print(' '.join(map(str, list(range(1, 10**5)))))
 
 
 def solve():
@@ -21,7 +16,7 @@ def solve():
     chd = defaultdict(list)
     for i in range(N - 1):
         chd[par[i]].append(i + 2)
-    
+
     I = defaultdict(int)
     Pa = [0] * (N + 1)
     Pb = [0] * (N + 1)

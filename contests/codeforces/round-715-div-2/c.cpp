@@ -30,27 +30,27 @@ typedef pair<int, int> pii;
 
 const ll inf = 1e15;
 int main() {
-	ios::sync_with_stdio(false);
-	cin.tie(0);
-	int n;
-	cin >> n;
-	vector<int> a(n);
-	for (int i = 0; i < n; i++) {
-		cin >> a[i];
-	}
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+    int n;
+    cin >> n;
+    vector<int> a(n);
+    for (int i = 0; i < n; i++) {
+        cin >> a[i];
+    }
 
-	sort(a.begin(), a.end());
-	
-	vector<vector<ll>> dp(n, vector<ll>(n, inf));
-	for (int i = 0; i < n; i++) {
-		dp[i][i] = 0;
-	}
+    sort(a.begin(), a.end());
 
-	for (int sz = 2; sz <= n; sz++) {
-		for (int i = 0; i + sz <= n; i++) {
-			int j = i + sz - 1;
-			dp[i][j] = min(dp[i + 1][j], dp[i][j - 1]) + a[j] - a[i];
-		}
-	}
-	cout << dp[0][n - 1] << endl;
+    vector<vector<ll>> dp(n, vector<ll>(n, inf));
+    for (int i = 0; i < n; i++) {
+        dp[i][i] = 0;
+    }
+
+    for (int sz = 2; sz <= n; sz++) {
+        for (int i = 0; i + sz <= n; i++) {
+            int j = i + sz - 1;
+            dp[i][j] = min(dp[i + 1][j], dp[i][j - 1]) + a[j] - a[i];
+        }
+    }
+    cout << dp[0][n - 1] << endl;
 }

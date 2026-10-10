@@ -30,41 +30,41 @@ using namespace std;
 typedef long long ll;
 typedef pair<int, int> pii;
 
-const int dx4[] = { -1, 0, 1, 0 };
-const int dy4[] = { 0, -1, 0, 1 };
-const int dx8[] = { -1, -1, -1, 0, 0, 1, 1, 1 };
-const int dy8[] = { -1, 0, 1, -1, 1, -1, 0, 1 };
+const int dx4[] = {-1, 0, 1, 0};
+const int dy4[] = {0, -1, 0, 1};
+const int dx8[] = {-1, -1, -1, 0, 0, 1, 1, 1};
+const int dy8[] = {-1, 0, 1, -1, 1, -1, 0, 1};
 
 const int mxn = 1e6;
 int lps[mxn];
 
 int main() {
-	ios::sync_with_stdio(false);
-	cin.tie(0);
-	string s;
-	cin >> s;
-	int l = 0;
-	int n = s.size();
-	for (int i = 1; i < n; i++) {
-		while (l && s[i] != s[l]) {
-			l = lps[l - 1];
-		}
-		if (s[i] == s[l]) {
-			l++;
-		}
-		lps[i] = l;
-	}
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+    string s;
+    cin >> s;
+    int l = 0;
+    int n = s.size();
+    for (int i = 1; i < n; i++) {
+        while (l && s[i] != s[l]) {
+            l = lps[l - 1];
+        }
+        if (s[i] == s[l]) {
+            l++;
+        }
+        lps[i] = l;
+    }
 
-	vector<int> ans;
+    vector<int> ans;
 
-	while(l) {
-		ans.push_back(l);
-		l = lps[l - 1];
-	}
+    while (l) {
+        ans.push_back(l);
+        l = lps[l - 1];
+    }
 
-	reverse(ans.begin(), ans.end());
+    reverse(ans.begin(), ans.end());
 
-	for (int x : ans) {
-		cout << x << ' ';
-	}
+    for (int x : ans) {
+        cout << x << ' ';
+    }
 }

@@ -8,7 +8,7 @@ class Solution:
             for q in quantities:
                 cnt += (q + k - 1) // k
             return cnt <= n
-        
+
         lo = 1
         hi = max(quantities)
         while lo < hi:

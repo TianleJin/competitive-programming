@@ -15,9 +15,9 @@ long long dp(vector<long long>& zero, vector<long long>& one, long long c) {
     for (int i = 1; i <= n; i++) {
         f[i][0] = min(f[i][0], f[i - 1][0] + 2 * zero[i - 1]);
         if (i >= 2) {
-            f[i][0] = min(f[i][0], f[i - 2][0] + 2 * zero[i - 1] + c); 
+            f[i][0] = min(f[i][0], f[i - 2][0] + 2 * zero[i - 1] + c);
         }
-    }   
+    }
 
     for (int j = 1; j <= m; j++) {
         f[0][j] = min(f[0][j], f[0][j - 1] + 2 * one[j - 1]);
@@ -32,10 +32,10 @@ long long dp(vector<long long>& zero, vector<long long>& one, long long c) {
             f[i][j] = min(f[i][j], f[i][j - 1] + 2 * one[j - 1]);
             f[i][j] = min(f[i][j], f[i - 1][j - 1] + 2 * max(zero[i - 1], one[j - 1]));
             if (i >= 2) {
-                f[i][j] = min(f[i][j], f[i - 2][j] + 2 * zero[i - 1] + c); 
+                f[i][j] = min(f[i][j], f[i - 2][j] + 2 * zero[i - 1] + c);
             }
             if (j >= 2) {
-                f[i][j] = min(f[i][j], f[i][j - 2] + 2 * one[j - 1] + c); 
+                f[i][j] = min(f[i][j], f[i][j - 2] + 2 * one[j - 1] + c);
             }
         }
     }
@@ -52,16 +52,13 @@ void solve(int tt) {
         if (x < 0) {
             if (s == 0) {
                 neg_zero.push_back(-x);
-            }
-            else {
+            } else {
                 neg_one.push_back(-x);
             }
-        }
-        else {
+        } else {
             if (s == 0) {
                 pos_zero.push_back(x);
-            }
-            else {
+            } else {
                 pos_one.push_back(x);
             }
         }
@@ -74,7 +71,7 @@ void solve(int tt) {
 
     long long left = dp(neg_zero, neg_one, c);
     long long right = dp(pos_zero, pos_one, c);
-    cout << "Case #" << tt << ": " << left + right << "\n"; 
+    cout << "Case #" << tt << ": " << left + right << "\n";
 }
 
 int main() {

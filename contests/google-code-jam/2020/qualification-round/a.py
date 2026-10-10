@@ -2,7 +2,7 @@ def solve(mat, N, t):
     trace = 0
     for i in range(N):
         trace += mat[i][i]
-    
+
     row_cnt = 0
     for i in range(N):
         seen = set()
@@ -20,11 +20,11 @@ def solve(mat, N, t):
                 col_cnt += 1
                 break
             seen.add(mat[i][j])
-    
-    print("Case #{}: {} {} {}".format(t, trace, row_cnt, col_cnt))
+
+    print('Case #{}: {} {} {}'.format(t, trace, row_cnt, col_cnt))
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     T = int(input())
     for t in range(1, T + 1):
         N = int(input())

@@ -4,6 +4,8 @@ from typing import List
 
 
 INF = float('inf')
+
+
 class Solution:
     def secondMinimum(self, n: int, edges: List[List[int]], time: int, change: int) -> int:
         E = defaultdict(list)
@@ -12,7 +14,7 @@ class Solution:
             v -= 1
             E[u].append(v)
             E[v].append(u)
-        
+
         dist = [[INF] * 2 for _ in range(n)]
         dist[0][0] = 0
         pq = [[0, 0]]
@@ -20,9 +22,9 @@ class Solution:
             t, u = heappop(pq)
             if t > dist[u][1]:
                 continue
-            
+
             nt = (t // change + 1) * change if (t // change) % 2 else t
-            
+
             for v in E[u]:
                 if nt + time < dist[v][0]:
                     dist[v][0] = nt + time

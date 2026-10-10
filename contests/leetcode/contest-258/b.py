@@ -9,7 +9,7 @@ class Solution:
         for w, h in rectangles:
             g = gcd(w, h)
             mp[w // g, h // g] += 1
-        
+
         ans = 0
         for v in mp.values():
             ans += v * (v - 1) // 2

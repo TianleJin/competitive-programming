@@ -15,8 +15,9 @@ bool bfs() {
     q.push(source);
     vis[source] = true;
     while (!q.empty()) {
-        int x = q.front(); q.pop();
-        for (int y: edge[x]) {
+        int x = q.front();
+        q.pop();
+        for (int y : edge[x]) {
             if (!vis[y] && cap[x][y] > 0) {
                 q.push(y);
                 vis[y] = true;
@@ -36,7 +37,8 @@ int main() {
     for (int i = 0; i < m; i++) {
         int a, b, c;
         cin >> a >> b >> c;
-        a--; b--;
+        a--;
+        b--;
         edge[a].push_back(b);
         edge[b].push_back(a);
         cap[a][b] += c;

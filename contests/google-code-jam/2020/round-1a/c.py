@@ -1,6 +1,4 @@
-from collections import defaultdict as ddt 
 from collections import deque
-from random import randint
 
 
 istr = lambda: input().strip()
@@ -55,7 +53,7 @@ def solve(R, C, dancers):
             head.next, nxt.prev = nxt, head
             col_refs[r, c] = nxt
             head = head.next
-    
+
     for _ in range(R * C):
         if not queue:
             break
@@ -76,7 +74,7 @@ def solve(R, C, dancers):
 
             if cnt * row_ref.val < neigh_sum:
                 eliminate.add((r, c))
-            
+
         for r, c in eliminate:
             vis.add((r, c))
             row_ref = row_refs[r, c]
@@ -97,7 +95,7 @@ def solve(R, C, dancers):
 
             if col_ref.prev:
                 col_ref.prev.next = col_ref.next
-                coord = (col_ref.prev.r, col_ref.prev.c) 
+                coord = (col_ref.prev.r, col_ref.prev.c)
                 if coord not in vis and coord not in eliminate:
                     queue.append(coord)
 
@@ -109,9 +107,9 @@ def solve(R, C, dancers):
     return ans
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     T = int(input())
     for t in range(1, T + 1):
         R, C = iintl()
         ans = solve(R, C, [iintl() for _ in range(R)])
-        print("Case #{}: {}".format(t, ans))
+        print('Case #{}: {}'.format(t, ans))

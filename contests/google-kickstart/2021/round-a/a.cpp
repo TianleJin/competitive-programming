@@ -30,25 +30,25 @@ typedef pair<int, int> pii;
 int n, k;
 string s;
 int solve() {
-	cin >> n >> k;
-	cin >> s;
-	int score = 0;
-	for (int i = 0; i < n / 2; i++) {
-		if (s[i] != s[n - i - 1]) {
-			score++;
-		}
-	}
-	return abs(score - k);
+    cin >> n >> k;
+    cin >> s;
+    int score = 0;
+    for (int i = 0; i < n / 2; i++) {
+        if (s[i] != s[n - i - 1]) {
+            score++;
+        }
+    }
+    return abs(score - k);
 }
-	
+
 int main() {
-	ios::sync_with_stdio(false);
-	cin.tie(0);
-	cout.precision(25);
-	
-	int T;
-	cin >> T;
-	for (int tt = 1; tt <= T; tt++) {
-		cout << "Case #" << tt << ": " << solve() << endl;
-	}
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+    cout.precision(25);
+
+    int T;
+    cin >> T;
+    for (int tt = 1; tt <= T; tt++) {
+        cout << "Case #" << tt << ": " << solve() << endl;
+    }
 }

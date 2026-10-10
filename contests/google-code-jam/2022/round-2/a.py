@@ -1,13 +1,16 @@
 read_line = lambda: list(map(int, input().strip().split()))
 INF = float('inf')
 
+
 def print_impossible(tt):
-    print(f"Case #{tt}: IMPOSSIBLE")
+    print(f'Case #{tt}: IMPOSSIBLE')
+
 
 def print_answer(tt, ans):
-    print(f"Case #{tt}: {len(ans)}")
+    print(f'Case #{tt}: {len(ans)}')
     for x, y in ans:
-        print(f"{x} {y}")
+        print(f'{x} {y}')
+
 
 def shift_forward(j, l, c, s):
     nl = l + c + 1
@@ -16,12 +19,13 @@ def shift_forward(j, l, c, s):
     nj = j + 1
     return nj, nl, nc, ns
 
+
 def solve(tt):
     n, k = read_line()
     target_row = n // 2
     target_col = n // 2
     minimum_move = target_row + target_col
-    
+
     if k < minimum_move or k % 2 == 1:
         print_impossible(tt)
         return
@@ -43,7 +47,7 @@ def solve(tt):
     print_answer(tt, ans)
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     T = int(input())
     for tt in range(1, T + 1):
         solve(tt)

@@ -11,25 +11,26 @@ long long k;
 string s;
 
 bool comp(int i, int j) {
-    if (rnk[i] != rnk[j]) return rnk[i] < rnk[j];
-    i += gap; j += gap;
+    if (rnk[i] != rnk[j])
+        return rnk[i] < rnk[j];
+    i += gap;
+    j += gap;
     return i < n && j < n ? rnk[i] < rnk[j] : i > j;
 }
 
 long long enumerate(int i, int l) {
-    vector<int> dp(i + 1); 
+    vector<int> dp(i + 1);
     dp[i] = l;
 
     for (int j = i - 1, cp = l; j >= 0; j--) {
         cp = min(cp, lcp[j]);
         if (cp < l) {
             dp[j] = n - sa[j];
-        }
-        else {
+        } else {
             dp[j] = cp;
         }
     }
-    
+
     long long ans = l;
     for (int j = 0; j < i; j++) {
         ans += max(0, dp[j] - min(dp[j + 1], lcp[j]));
@@ -43,8 +44,7 @@ int bs1() {
         int mid = (lo + hi) / 2;
         if (enumerate(mid, n - sa[mid]) >= k) {
             hi = mid;
-        }
-        else {
+        } else {
             lo = mid + 1;
         }
     }
@@ -57,8 +57,7 @@ int bs2(int idx) {
         int mid = (lo + hi) / 2;
         if (enumerate(idx, mid) >= k) {
             hi = mid;
-        }
-        else {
+        } else {
             lo = mid + 1;
         }
     }
@@ -68,24 +67,31 @@ int bs2(int idx) {
 int main() {
     cin >> s >> k;
     n = s.size();
-    
-    for (int i = 0; i < n; i++) sa[i] = i;
-    for (int i = 0; i < n; i++) rnk[i] = s[i] - 'a';
-    
+
+    for (int i = 0; i < n; i++)
+        sa[i] = i;
+    for (int i = 0; i < n; i++)
+        rnk[i] = s[i] - 'a';
+
     for (gap = 1;; gap *= 2) {
         sort(sa, sa + n, comp);
         tmp[0] = 0;
-        for (int i = 1; i < n; i++) tmp[i] = tmp[i - 1] + comp(sa[i - 1], sa[i]);
-        for (int i = 0; i < n; i++) rnk[sa[i]] = tmp[i];
-        if (tmp[n - 1] == n - 1) break;
+        for (int i = 1; i < n; i++)
+            tmp[i] = tmp[i - 1] + comp(sa[i - 1], sa[i]);
+        for (int i = 0; i < n; i++)
+            rnk[sa[i]] = tmp[i];
+        if (tmp[n - 1] == n - 1)
+            break;
     }
 
     for (int i = 0, l = 0; i < n; i++) {
         if (rnk[i] != n - 1) {
             int j = sa[rnk[i] + 1];
-            while (i + l < n && j + l < n && s[i + l] == s[j + l]) l++;
+            while (i + l < n && j + l < n && s[i + l] == s[j + l])
+                l++;
             lcp[rnk[i]] = l;
-            if (l) --l;
+            if (l)
+                --l;
         }
     }
 

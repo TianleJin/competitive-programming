@@ -1,5 +1,4 @@
 class minHeap:
-
     def __init__(self, arr):
         self.size = len(arr)
         self.heap = [0] + arr
@@ -58,7 +57,7 @@ class minHeap:
         self.heap.append(val)
         self.size += 1
         self.rise(self.size)
-    
+
     def peak(self):
         if self.isEmpty():
             raise ValueError

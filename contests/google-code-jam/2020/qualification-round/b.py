@@ -5,7 +5,7 @@ def solve(s, t):
         ans = []
         end = 0
         while end < len(s):
-            tmp = ""
+            tmp = ''
             while end < len(s) and int(s[end]) >= l:
                 tmp += s[end]
                 end += 1
@@ -17,11 +17,11 @@ def solve(s, t):
                 ans.extend(dfs(tmp, l + 1))
                 ans.append(')')
         return ans
-    
-    print("Case #{}: {}".format(t, ''.join(dfs(s, 1))))
+
+    print('Case #{}: {}'.format(t, ''.join(dfs(s, 1))))
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     T = int(input())
     for t in range(1, T + 1):
         solve(input().strip(), t)

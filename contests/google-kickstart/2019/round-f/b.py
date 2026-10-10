@@ -1,6 +1,7 @@
 from collections import defaultdict
 from random import randint
 from itertools import combinations
+
 it = lambda: list(map(int, input().strip().split()))
 INF = float('inf')
 
@@ -24,7 +25,7 @@ def case(T, ub):
 def brute(N, E):
     for i in range(N):
         E[i] = set(E[i])
-    
+
     ans = 0
     for i in range(N):
         for j in range(i + 1, N):
@@ -46,7 +47,7 @@ def solve():
         for r in range(1, len(e) + 1):
             for c in combinations(e, r):
                 C[tuple(c)] += 1
-    
+
     ans = N * N
     for e in E:
         ans -= C[tuple(e)]

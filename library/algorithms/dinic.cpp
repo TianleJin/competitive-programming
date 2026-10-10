@@ -36,7 +36,8 @@ struct Dinic {
         q.push(source);
 
         while (!q.empty()) {
-            int u = q.front(); q.pop();
+            int u = q.front();
+            q.pop();
             for (int v : edges[u]) {
                 if (dist[v] == -1 && cap[u][v] > flow[u][v]) {
                     dist[v] = dist[u] + 1;
@@ -92,7 +93,8 @@ int main() {
     for (int i = 0; i < m; i++) {
         int a, b, c;
         cin >> a >> b >> c;
-        a--; b--;
+        a--;
+        b--;
         max_flow.add_edge(a, b, c);
     }
     cout << max_flow.solve();

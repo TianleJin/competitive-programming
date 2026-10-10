@@ -14,14 +14,15 @@ def solve():
     def dfs(i, mod, cnt):
         if mod == target and cnt == limit:
             return True
-        
+
         if i == 9 or cnt > limit:
             return False
-        
+
         for c in range(A[i] + 1):
             if dfs(i + 1, (mod + c * (i + 1)) % 11, cnt + c):
                 return True
         return False
+
     return 'YES' if dfs(0, 0, 0) else 'NO'
 
 

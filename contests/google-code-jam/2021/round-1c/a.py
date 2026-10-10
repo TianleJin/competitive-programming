@@ -20,4 +20,4 @@ def solve():
 T = int(input())
 for tt in range(1, T + 1):
     ans = solve()
-    print("Case #{}: {}".format(tt, ans))
+    print('Case #{}: {}'.format(tt, ans))

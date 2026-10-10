@@ -1,5 +1,7 @@
 from math import gcd
 from collections import defaultdict
+
+
 class Solution:
     def countDifferentSubsequenceGCDs(self, nums: List[int]) -> int:
         ans = 0
@@ -9,13 +11,13 @@ class Solution:
             if not can[num]:
                 can[num] = True
                 ans += 1
-        
+
         num = mxn
         while num > 0:
-            if can[num]: 
+            if can[num]:
                 num -= 1
                 continue
-            
+
             g = 0
             x = num
             while x <= mxn:
@@ -24,7 +26,7 @@ class Solution:
                     if g == num:
                         break
                 x += num
-                
+
             if g == num:
                 can[num] = True
                 ans += 1

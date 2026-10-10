@@ -1,10 +1,11 @@
-MOD = 10 ** 9 + 7
+MOD = 10**9 + 7
 it = lambda: list(map(int, input().strip().split()))
+
 
 def solve():
     N, K = it()
     A = it()
-    
+
     zero = 0
     neg = []
     pos = []
@@ -15,10 +16,10 @@ def solve():
             pos.append(A[i])
         else:
             zero += 1
-    
+
     if not neg and not pos:
         return 0
-    
+
     pos.sort()
     neg.sort(reverse=True)
 
@@ -46,7 +47,7 @@ def solve():
             ans = ans * pos.pop() % MOD * neg.pop() % MOD
         else:
             return 0
-    
+
     if K % 2 == 1:
         if pos:
             ans = ans * pos.pop() % MOD

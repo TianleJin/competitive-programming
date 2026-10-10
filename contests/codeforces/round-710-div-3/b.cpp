@@ -29,47 +29,47 @@ using namespace std;
 typedef long long ll;
 typedef pair<int, int> pii;
 
-const int dx4[] = { -1, 0, 1, 0 };
-const int dy4[] = { 0, -1, 0, 1 };
-const int dx8[] = { -1, -1, -1, 0, 0, 1, 1, 1 };
-const int dy8[] = { -1, 0, 1, -1, 1, -1, 0, 1 };
+const int dx4[] = {-1, 0, 1, 0};
+const int dy4[] = {0, -1, 0, 1};
+const int dx8[] = {-1, -1, -1, 0, 0, 1, 1, 1};
+const int dy8[] = {-1, 0, 1, -1, 1, -1, 0, 1};
 
 int main() {
-	ios::sync_with_stdio(false);
-	cin.tie(0);
-	int T;
-	cin >> T;
-	while (T--) {
-		int n, k;
-		cin >> n >> k;
-		string s;
-		cin >> s;
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+    int T;
+    cin >> T;
+    while (T--) {
+        int n, k;
+        cin >> n >> k;
+        string s;
+        cin >> s;
 
-		int l;
-		for (l = n - 1; l >= 0; l--) {
-			if (s[l] == '*') {
-				break;
-			}
-		}
+        int l;
+        for (l = n - 1; l >= 0; l--) {
+            if (s[l] == '*') {
+                break;
+            }
+        }
 
-		int a = 1;
-		int i = 0;
+        int a = 1;
+        int i = 0;
 
-		while (s[i] == '.') {
-			i++;
-		}
+        while (s[i] == '.') {
+            i++;
+        }
 
-		while (i < l) {
-			int j;
-			for (j = min(n - 1, i + k); j > i; j--) {
-				if (s[j] == '*') {
-					break;
-				}
-			}
-			i = j;
-			a++;
-		}
+        while (i < l) {
+            int j;
+            for (j = min(n - 1, i + k); j > i; j--) {
+                if (s[j] == '*') {
+                    break;
+                }
+            }
+            i = j;
+            a++;
+        }
 
-		cout << a << endl;
-	}
+        cout << a << endl;
+    }
 }

@@ -13,11 +13,11 @@ class Solution:
                 critical.append(i)
             f, s, head = s, head, head.next
             i += 1
-        
+
         if len(critical) <= 1:
             return [-1, -1]
-        
+
         return [
             min(critical[i + 1] - critical[i] for i in range(len(critical) - 1)),
-            critical[-1] - critical[0]
+            critical[-1] - critical[0],
         ]

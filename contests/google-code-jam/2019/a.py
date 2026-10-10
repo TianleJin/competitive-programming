@@ -1,5 +1,5 @@
 # import sys
-# sys.setrecursionlimit(2 ** 50) 
+# sys.setrecursionlimit(2 ** 50)
 
 
 class Trie:
@@ -25,7 +25,7 @@ def solve(n, words):
         for ch in node.children.values():
             dfs(ch)
             node.cnt += ch.cnt
-        
+
         if node is not trie and node.cnt >= 2:
             ans[0] += 2
             node.cnt -= 2
@@ -40,4 +40,4 @@ if __name__ == '__main__':
         n = int(input())
         words = [input().strip() for _ in range(n)]
         ans = solve(n, words)
-        print("Case #{}: {}".format(t, ans))
+        print('Case #{}: {}'.format(t, ans))

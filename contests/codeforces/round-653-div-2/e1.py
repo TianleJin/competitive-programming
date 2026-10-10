@@ -3,10 +3,10 @@ it = lambda: list(map(int, input().strip().split()))
 
 def solve():
     n, k = it()
-    
+
     bob = []
     both = []
-    alice = [] 
+    alice = []
 
     for _ in range(n):
         t, a, b = it()
@@ -16,7 +16,7 @@ def solve():
             alice.append(t)
         elif b:
             bob.append(t)
-    
+
     M = len(both)
     N = min(len(bob), len(alice))
 
@@ -30,7 +30,7 @@ def solve():
     merge = [0] * N
     for i in range(N):
         merge[i] = alice[i] + bob[i]
-    
+
     a = 0
     i = 0
     j = 0

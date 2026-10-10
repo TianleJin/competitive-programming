@@ -29,10 +29,10 @@ using namespace std;
 typedef long long ll;
 typedef pair<int, int> pii;
 
-const int dx4[] = { -1, 0, 1, 0 };
-const int dy4[] = { 0, -1, 0, 1 };
-const int dx8[] = { -1, -1, -1, 0, 0, 1, 1, 1 };
-const int dy8[] = { -1, 0, 1, -1, 1, -1, 0, 1 };
+const int dx4[] = {-1, 0, 1, 0};
+const int dy4[] = {0, -1, 0, 1};
+const int dx8[] = {-1, -1, -1, 0, 0, 1, 1, 1};
+const int dy8[] = {-1, 0, 1, -1, 1, -1, 0, 1};
 
 // https://cses.fi/problemset/task/1693/
 // eulerian trail
@@ -43,46 +43,52 @@ stack<int> stk;
 bool vis[mxn];
 
 void dfs(int node) {
-	vis[node] = true;
-	while (!graph[node].empty()) {
-		int u = graph[node].top(); graph[node].pop();
-		dfs(u);
-	}
-	stk.push(node);
+    vis[node] = true;
+    while (!graph[node].empty()) {
+        int u = graph[node].top();
+        graph[node].pop();
+        dfs(u);
+    }
+    stk.push(node);
 }
 
 int main() {
-	ios::sync_with_stdio(false);
-	cin.tie(0);
-	cin >> n >> m;
-	for (int i = 0; i < m; i++) {
-		int u, v;
-		cin >> u >> v;
-		graph[u].push(v);
-		in[v]++; out[u]++;
-	}
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+    cin >> n >> m;
+    for (int i = 0; i < m; i++) {
+        int u, v;
+        cin >> u >> v;
+        graph[u].push(v);
+        in[v]++;
+        out[u]++;
+    }
 
-	bool ok = true;
-	if (out[1] != in[1] + 1) ok = false;
-	if (out[n] != in[n] - 1) ok = false;
-	for (int u = 2; u < n; u++) {
-		if (in[u] != out[u]) ok = false;
-	}
-	if (!ok) {
-		cout << "IMPOSSIBLE" << endl;
-		return 0;
-	}
+    bool ok = true;
+    if (out[1] != in[1] + 1)
+        ok = false;
+    if (out[n] != in[n] - 1)
+        ok = false;
+    for (int u = 2; u < n; u++) {
+        if (in[u] != out[u])
+            ok = false;
+    }
+    if (!ok) {
+        cout << "IMPOSSIBLE" << endl;
+        return 0;
+    }
 
-	dfs(1);
+    dfs(1);
 
-	for (int u = 1; u <= n; u++) {
-		if (!vis[u] && out[u]) {
-			cout << "IMPOSSIBLE" << endl;
-			return 0;
-		}
-	}
+    for (int u = 1; u <= n; u++) {
+        if (!vis[u] && out[u]) {
+            cout << "IMPOSSIBLE" << endl;
+            return 0;
+        }
+    }
 
-	while (!stk.empty()) {
-		cout << stk.top() << ' '; stk.pop();
-	}
+    while (!stk.empty()) {
+        cout << stk.top() << ' ';
+        stk.pop();
+    }
 }

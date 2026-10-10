@@ -9,7 +9,7 @@ def solve():
         a, b = it()
         F[i] = a
         S[i] = b
-    
+
     cnt = 0
     for i in range(n):
         if F[i] == S[i]:

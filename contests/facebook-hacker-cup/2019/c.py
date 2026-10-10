@@ -1,5 +1,5 @@
-from collections import defaultdict
 from random import randint
+
 it = lambda: list(map(int, input().strip().split()))
 INF = float('inf')
 
@@ -11,7 +11,7 @@ def case(N, M):
 
 
 def solve():
-    # N people 
+    # N people
     # M questions
     N, M = it()
     A = [input().strip() for _ in range(N)]
@@ -29,7 +29,7 @@ def solve():
     for i in range(1, N):
         if all(A[i][j] == 'Y' for j in ye):
             ss += 1
-    
+
     if ss > 1:
         return 'N'
 
@@ -44,7 +44,7 @@ def solve():
                 c += 1
         if c == 1:
             return 'Y'
-    
+
     # P = defaultdict(set)
     # Q = defaultdict(set)
 
@@ -60,17 +60,17 @@ def solve():
         for j in range(M):
             if A[0][j] == A[i][j] == 'Y':
                 I.add(j)
-        
+
         for l in range(1, N):
             if i != l and all(A[l][j] == 'Y' for j in I):
                 L.add(l)
-        
+
         for j in range(M):
             if A[i][j] == 'Y' and A[0][j] == 'N':
                 if not L or all(A[l][j] == 'N' for l in L):
                     return 'Y'
     return 'N'
-                
+
 
 if __name__ == '__main__':
     T = int(input())

@@ -1,4 +1,5 @@
 from random import randint
+
 it = lambda: list(map(int, input().strip().split()))
 INF = float('inf')
 

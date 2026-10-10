@@ -4,7 +4,7 @@ class TreeNode:
         self.val = val
         self.left = None
         self.right = None
-    
+
     def is_leaf(self):
         return self.left is None and self.right is None
 
@@ -12,15 +12,16 @@ class TreeNode:
 class BinarySearchTree:
     def __init__(self):
         self.root = None
-    
+
     def traverse(self):
         def dfs(root):
             if root:
                 dfs(root.left)
                 print(root.key, root.val)
                 dfs(root.right)
+
         dfs(self.root)
-    
+
     def __getitem__(self, key):
         def search(root):
             if not root:
@@ -31,8 +32,9 @@ class BinarySearchTree:
                 return search(root.left)
             else:
                 return search(root.right)
+
         return search(self.root)
-    
+
     def __setitem__(self, key, val):
         if not self.root:
             self.root = TreeNode(key, val)
@@ -51,15 +53,16 @@ class BinarySearchTree:
                     root.right = TreeNode(key, val)
                 else:
                     search(root.right)
+
         search(self.root)
-    
+
     def __delitem__(self, key):
         def successor(root):
             curr = root.right
             while curr.left:
                 curr = curr.left
             return curr
-            
+
         def search(root, key):
             if root is None:
                 return root
@@ -80,4 +83,5 @@ class BinarySearchTree:
                 root.key, root.val = temp.key, temp.val
                 root.right = search(root.right, temp.key)
             return root
+
         self.root = search(self.root, key)

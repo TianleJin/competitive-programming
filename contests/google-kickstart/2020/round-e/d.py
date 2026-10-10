@@ -1,5 +1,6 @@
 from collections import defaultdict
 from heapq import heappush, heappop
+
 it = lambda: list(map(int, input().strip().split()))
 INF = 1e12
 
@@ -19,7 +20,7 @@ def solve():
         v -= 1
         edges[u].append(v)
         edges[v].append(u)
-    
+
     # get stones for each junction
     stones = defaultdict(list)
     for i in range(N):
@@ -40,21 +41,22 @@ def solve():
 
     stone_dist = defaultdict(lambda: INF)
     recipe_dist = defaultdict(lambda: [0, 0])
-    
+
     pq = []
     for i in range(N):
         for s in stones[i]:
             stone_dist[s, i] = 0
             heappush(pq, (0, s, i))
-    
+
     # dijkstra
     while pq:
         d, s, cur = heappop(pq)
         assert d >= stone_dist[s, cur]
-        if d != stone_dist[s, cur]: continue
+        if d != stone_dist[s, cur]:
+            continue
         for r in users[s]:
             recipe_dist[r, cur][0] += 1
-            recipe_dist[r, cur][1] += d 
+            recipe_dist[r, cur][1] += d
             if recipe_dist[r, cur][0] == num_inputs[r]:
                 nd = recipe_dist[r, cur][1]
                 p = products[r]
@@ -66,12 +68,12 @@ def solve():
             if nd < stone_dist[s, adj]:
                 stone_dist[s, adj] = nd
                 heappush(pq, (nd, s, adj))
-    
+
     ans = INF
     for i in range(N):
         ans = min(ans, stone_dist[0, i])
     return -1 if ans == INF else ans
-    
+
 
 if __name__ == '__main__':
     T = int(input())

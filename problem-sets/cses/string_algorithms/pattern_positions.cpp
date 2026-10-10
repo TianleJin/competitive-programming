@@ -9,8 +9,10 @@ int n, q, gap, rnk[mxn], tmp[mxn], sa[mxn], lcp[mxn], seg[2 * mxn];
 string s, p;
 
 bool comp(int i, int j) {
-    if (rnk[i] != rnk[j]) return rnk[i] < rnk[j];
-    i += gap; j += gap;
+    if (rnk[i] != rnk[j])
+        return rnk[i] < rnk[j];
+    i += gap;
+    j += gap;
     return i < n && j < n ? rnk[i] < rnk[j] : i > j;
 }
 
@@ -41,8 +43,10 @@ int lowerbound(string& p) {
     int lo = 0, hi = n - 1;
     while (lo < hi) {
         int mid = (lo + hi) / 2;
-        if (p <= s.substr(sa[mid], p.size())) hi = mid;
-        else lo = mid + 1;
+        if (p <= s.substr(sa[mid], p.size()))
+            hi = mid;
+        else
+            lo = mid + 1;
     }
     return lo;
 }
@@ -51,8 +55,10 @@ int upperbound(string& p) {
     int lo = 0, hi = n - 1;
     while (lo < hi) {
         int mid = (lo + hi + 1) / 2;
-        if (p >= s.substr(sa[mid], p.size())) lo = mid;
-        else hi = mid - 1;
+        if (p >= s.substr(sa[mid], p.size()))
+            lo = mid;
+        else
+            hi = mid - 1;
     }
     return lo;
 }
@@ -60,24 +66,31 @@ int upperbound(string& p) {
 int main() {
     cin >> s;
     n = s.size();
-    
-    for (int i = 0; i < n; i++) sa[i] = i;
-    for (int i = 0; i < n; i++) rnk[i] = s[i] - 'a';
-    
+
+    for (int i = 0; i < n; i++)
+        sa[i] = i;
+    for (int i = 0; i < n; i++)
+        rnk[i] = s[i] - 'a';
+
     for (gap = 1;; gap *= 2) {
         sort(sa, sa + n, comp);
         tmp[0] = 0;
-        for (int i = 1; i < n; i++) tmp[i] = tmp[i - 1] + comp(sa[i - 1], sa[i]);
-        for (int i = 0; i < n; i++) rnk[sa[i]] = tmp[i];
-        if (tmp[n - 1] == n - 1) break;
+        for (int i = 1; i < n; i++)
+            tmp[i] = tmp[i - 1] + comp(sa[i - 1], sa[i]);
+        for (int i = 0; i < n; i++)
+            rnk[sa[i]] = tmp[i];
+        if (tmp[n - 1] == n - 1)
+            break;
     }
 
     for (int i = 0, k = 0; i < n; i++) {
         if (rnk[i] != n - 1) {
             int j = sa[rnk[i] + 1];
-            while (i + k < n && j + k < n && s[i + k] == s[j + k]) k++;
+            while (i + k < n && j + k < n && s[i + k] == s[j + k])
+                k++;
             lcp[rnk[i]] = k;
-            if (k) --k;
+            if (k)
+                --k;
         }
     }
 
@@ -87,7 +100,9 @@ int main() {
     for (int i = 0; i < q; i++) {
         cin >> p;
         int l = lowerbound(p), r = upperbound(p);
-        if (l > r || p != s.substr(sa[l], p.size())) cout << -1 << '\n';
-        else cout << query(l, r + 1) + 1 << '\n';
+        if (l > r || p != s.substr(sa[l], p.size()))
+            cout << -1 << '\n';
+        else
+            cout << query(l, r + 1) + 1 << '\n';
     }
 }

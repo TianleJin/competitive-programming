@@ -9,6 +9,7 @@ def count(num):
         num = num >> 1
     return cnt
 
+
 def find(num):
     ans = 0
     while num > 0:
@@ -16,6 +17,7 @@ def find(num):
         cnt = count(num)
         num = num % cnt
     return ans
+
 
 def create(N, cnt):
     cur = 1
@@ -25,12 +27,14 @@ def create(N, cnt):
         cur = (cur << 1) % cnt
     return two
 
+
 def getRem(N, A, cnt, two):
     rem = 0
     for i in range(N):
         if A[i] == '1':
             rem = (rem + two[N - i - 1]) % cnt
     return rem
+
 
 def solve():
     N = int(input())
@@ -40,7 +44,7 @@ def solve():
     for i in range(N):
         if A[i] == '1':
             popcount += 1
-    
+
     more = popcount + 1
     less = popcount - 1
 
@@ -49,7 +53,7 @@ def solve():
         rem_less = getRem(N, A, less, less_two)
     more_two = create(N, more)
     rem_more = getRem(N, A, more, more_two)
-    
+
     nums = []
     for i in range(N):
         if A[i] == '1':

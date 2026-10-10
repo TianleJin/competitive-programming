@@ -25,15 +25,15 @@ struct BipartiteMatching {
         for (int u = 1; u <= n; u++) {
             if (match[u]) {
                 dist[u] = inf;
-            }
-            else {
+            } else {
                 dist[u] = 0;
                 q.push(u);
             }
         }
-        
+
         while (!q.empty()) {
-            int u = q.front(); q.pop();
+            int u = q.front();
+            q.pop();
             if (u != 0) {
                 for (int v : edges[u]) {
                     if (dist[match[v]] == inf) {
@@ -86,12 +86,13 @@ int main() {
     for (int i = 0; i < k; i++) {
         int u, v;
         cin >> u >> v;
-        u--; v--;
+        u--;
+        v--;
         bpm.add_edge(u, v);
     }
 
     int ans = bpm.solve();
-    
+
     cout << ans << "\n";
     for (int u = 1; u <= n; u++) {
         if (bpm.match[u]) {

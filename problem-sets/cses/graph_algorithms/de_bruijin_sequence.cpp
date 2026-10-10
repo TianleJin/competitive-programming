@@ -29,10 +29,10 @@ using namespace std;
 typedef long long ll;
 typedef pair<int, int> pii;
 
-const int dx4[] = { -1, 0, 1, 0 };
-const int dy4[] = { 0, -1, 0, 1 };
-const int dx8[] = { -1, -1, -1, 0, 0, 1, 1, 1 };
-const int dy8[] = { -1, 0, 1, -1, 1, -1, 0, 1 };
+const int dx4[] = {-1, 0, 1, 0};
+const int dy4[] = {0, -1, 0, 1};
+const int dx8[] = {-1, -1, -1, 0, 0, 1, 1, 1};
+const int dy8[] = {-1, 0, 1, -1, 1, -1, 0, 1};
 
 // https://cses.fi/problemset/task/1692
 // eulerian trail
@@ -43,39 +43,42 @@ stack<int> graph[mxn];
 vector<int> ans;
 
 void dfs(int node) {
-	if (vis[node]) return;
-	vis[node] = true;
-	ans.push_back(node);
-	while (!graph[node].empty()) {
-		int u = graph[node].top(); graph[node].pop();
-		dfs(u);
-	}
+    if (vis[node])
+        return;
+    vis[node] = true;
+    ans.push_back(node);
+    while (!graph[node].empty()) {
+        int u = graph[node].top();
+        graph[node].pop();
+        dfs(u);
+    }
 }
 
 int main() {
-	ios::sync_with_stdio(false);
-	cin.tie(0);
-	
-	cin >> n; l = 1 << n;
+    ios::sync_with_stdio(false);
+    cin.tie(0);
 
-	for (int i = 0; i < l; i++) {
-		int x = (i << 1) & (l - 1);
-		int y = x | 1;
-		if (x != i) {
-			graph[i].push(x);
-		}
-		if (y != i) {
-			graph[i].push(y);
-		}
-	}
+    cin >> n;
+    l = 1 << n;
 
-	dfs(0);
+    for (int i = 0; i < l; i++) {
+        int x = (i << 1) & (l - 1);
+        int y = x | 1;
+        if (x != i) {
+            graph[i].push(x);
+        }
+        if (y != i) {
+            graph[i].push(y);
+        }
+    }
 
-	for (int i = n - 1; i >= 0; i--) {
-		cout << (ans[0] >> i & 1);
-	}
+    dfs(0);
 
-	for (int i = 1; i < ans.size(); i++) {
-		cout << (ans[i] & 1);
-	}
+    for (int i = n - 1; i >= 0; i--) {
+        cout << (ans[0] >> i & 1);
+    }
+
+    for (int i = 1; i < ans.size(); i++) {
+        cout << (ans[i] & 1);
+    }
 }

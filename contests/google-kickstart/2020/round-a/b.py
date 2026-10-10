@@ -7,6 +7,7 @@ def parse():
         beauty.append(b)
     return N, K, P, beauty
 
+
 def solve(N, K, P, beauty):
     dp = [[0] * (P + 1) for _ in range(N + 1)]
     for i in range(1, N + 1):
@@ -18,9 +19,10 @@ def solve(N, K, P, beauty):
                     total += beauty[i - 1][k]
     return dp[N][P]
 
+
 # Number of test cases
 T = int(input())
 for t in range(1, T + 1):
     N, K, P, beauty = parse()
     ans = solve(N, K, P, beauty)
-    print("Case #{}: {}".format(t, ans))
+    print('Case #{}: {}'.format(t, ans))

@@ -1,6 +1,6 @@
-from collections import defaultdict
 from random import randint
 from bisect import bisect_left
+
 it = lambda: list(map(int, input().strip().split()))
 
 
@@ -9,15 +9,15 @@ def case(total, ub):
         D, S = randint(1, ub), randint(1, ub)
         print(D, S)
         for _ in range(S):
-            print(randint(1, 10 ** 4), randint(1, 10 ** 4))
+            print(randint(1, 10**4), randint(1, 10**4))
         for _ in range(D):
-            print(randint(1, 10 ** 8), randint(1, 10 ** 8))
+            print(randint(1, 10**8), randint(1, 10**8))
 
 
 def tset():
     print(100)
-    case(90, 10 ** 3)
-    case(10, 10 ** 5)
+    case(90, 10**3)
+    case(10, 10**5)
 
 
 def isLess(x1, y1, x2, y2):

@@ -6,7 +6,7 @@ P = int(input())
 
 for tt in range(1, T + 1):
     ans = [input().strip() for _ in range(N)]
-    
+
     q = [0] * Q
     for i in range(N):
         for j in range(Q):
@@ -14,7 +14,7 @@ for tt in range(1, T + 1):
                 q[j] += 1
 
     qord = list(range(Q))
-    qord.sort(key=lambda i:q[i])
+    qord.sort(key=lambda i: q[i])
 
     score = [0] * N
     for i in range(N):
@@ -32,4 +32,3 @@ for tt in range(1, T + 1):
         if score[i] > score[imposter]:
             imposter = i
     print('Case #{}: {}'.format(tt, imposter + 1))
-

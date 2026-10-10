@@ -1,7 +1,7 @@
 class Manacher:
     def __init__(self, s):
         self.s = s
-    
+
     def build(self):
         self.build_odd()
         self.build_even()
@@ -22,7 +22,7 @@ class Manacher:
                 l = i - k
                 r = i + k
         self.odd = rad
-    
+
     def build_even(self):
         s = self.s
         n = len(s)
@@ -47,15 +47,15 @@ class Manacher:
             if 2 * l - 1 > sze:
                 sze = 2 * l - 1
                 idx = i - l + 1
-        
+
         for i, l in enumerate(self.even):
             if 2 * l > sze:
                 sze = 2 * l
                 idx = i - l
-        return self.s[idx:idx + sze]
+        return self.s[idx : idx + sze]
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     s = input().strip()
     solver = Manacher(s)
     solver.build()

@@ -1,4 +1,5 @@
 from collections import deque
+
 it = lambda: list(map(int, input().strip().split()))
 
 
@@ -15,7 +16,7 @@ def brute():
     A = [0] * N
     for i in range(N):
         A[i] = i % R
-    
+
     E = sorted(A)
     vis = set()
     vis.add(tuple(A))
@@ -27,7 +28,7 @@ def brute():
             return moves
         for i in range(N):
             for j in range(i + 1, N):
-                new_state = state[i+1:j+1] + state[:i+1] + state[j+1:]
+                new_state = state[i + 1 : j + 1] + state[: i + 1] + state[j + 1 :]
                 if not tuple(new_state) in vis:
                     vis.add(tuple(new_state))
                     queue.append((moves + 1, new_state))
@@ -39,8 +40,8 @@ def check(N, R, S, moves):
         A[i] = i % R
 
     for x, y in moves:
-        A = A[x:x+y] + A[:x] + A[x+y:]
-    
+        A = A[x : x + y] + A[:x] + A[x + y :]
+
     for i in range(N):
         assert A[i] == i // S
 
@@ -84,7 +85,7 @@ def solve(tt):
             moves.append([c1 + c2, c3])
 
     # check(N, R, S, moves)
-    print("Case #{}: {}".format(tt, total))
+    print('Case #{}: {}'.format(tt, total))
     for x, y in moves:
         print(x, y)
 
@@ -93,5 +94,5 @@ if __name__ == '__main__':
     T = int(input())
     for tt in range(1, T + 1):
         solve(tt)
-    
+
     # case()

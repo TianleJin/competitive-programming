@@ -22,7 +22,7 @@ def solve():
     dp = [[INF] * (N + 1) for _ in range(N + 1)]
     for j in range(N + 1):
         dp[0][j] = 0
-    
+
     for i in range(1, N + 1):
         s = ord(A[i - 1]) - ord('a')
         for j in range(i, N + 1):

@@ -1,0 +1,12 @@
+line-length = 100
+target-version = "py38"
+
+[format]
+quote-style = "single"
+
+[lint]
+select = ["E4", "E9", "F"]
+
+[lint.per-file-ignores]
+# LeetCode injects `List`, `Optional`, etc. into the judge environment.
+"contests/leetcode/**" = ["F821"]

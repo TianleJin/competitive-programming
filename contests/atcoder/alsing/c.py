@@ -1,4 +1,3 @@
-
 def solve():
     N = int(input())
     A = [0] * (N + 1)
@@ -10,5 +9,6 @@ def solve():
                     A[s] += 1
     for i in range(1, N + 1):
         print(A[i])
+
 
 solve()

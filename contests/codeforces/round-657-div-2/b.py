@@ -1,6 +1,5 @@
-from collections import deque, defaultdict
-from heapq import heapify, heappop, heappush
 it = lambda: list(map(int, input().strip().split()))
+
 
 def solve():
     l, r, m = it()
@@ -15,6 +14,7 @@ def solve():
         if l + u2 <= r:
             print(a, l, l + u2)
             return
+
 
 if __name__ == '__main__':
     T = int(input())

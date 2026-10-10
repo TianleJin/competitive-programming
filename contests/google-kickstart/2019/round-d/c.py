@@ -1,18 +1,17 @@
-from random import randint, random
-from collections import defaultdict
 from heapq import heappush, heappop
+
 it = lambda: list(map(int, input().strip().split()))
 INF = float('inf')
 
 
 def solve():
-    K, N = it() 
+    K, N = it()
     dist = it()
     cost = it()
-    
+
     A = [[d, c] for d, c in zip(dist, cost)]
     A.sort()
-    
+
     dist, cost = zip(*A)
     llim = K >> 1
     rlim = K - llim
@@ -38,7 +37,7 @@ def solve():
             cur += heappop(pq2)
         if len(pq2) == rlim:
             dp2[i] = min(dp2[i - 1] if i > 0 else INF, cur)
-    
+
     ans = INF
     for i in range(N):
         r_cost = dp1[i + 1] if i + 1 < N else 0 if llim == 0 else INF

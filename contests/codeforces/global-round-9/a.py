@@ -1,5 +1,6 @@
 it = lambda: list(map(int, input().strip().split()))
 
+
 def solve():
     N = int(input())
     A = it()

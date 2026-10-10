@@ -1,4 +1,5 @@
 from bisect import bisect_left
+
 it = lambda: list(map(int, input().strip().split()))
 
 
@@ -10,7 +11,7 @@ def solve():
     suffix = [0] * (N + 1)
     for i in range(N - 1, -1, -1):
         suffix[i] = V[i] + suffix[i + 1]
-    
+
     dp = [0] * (K + 1)
     dp[0] = sum(V) / N
     for i in range(1, K + 1):

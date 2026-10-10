@@ -15,7 +15,7 @@ def solve(N, M):
             return input()
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     T, N, M = input().strip().split()
     T, N, M = int(T), int(N), int(M)
     for t in range(1, T + 1):

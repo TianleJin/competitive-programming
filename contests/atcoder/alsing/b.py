@@ -10,4 +10,5 @@ def solve():
             cnt += 1
     print(cnt)
 
+
 solve()

@@ -11,22 +11,13 @@ class testBST(unittest.TestCase):
     def test_general(self):
         # small case
         t1 = BinarySearchTree()
-        mapping = {
-            10: 0,
-            1: 1,
-            2: 2,
-            18: 3, 
-            9: 4,
-            11: 5,
-            13: 6,
-            3: 7
-        }
+        mapping = {10: 0, 1: 1, 2: 2, 18: 3, 9: 4, 11: 5, 13: 6, 3: 7}
         for key, val in mapping.items():
             t1[key] = val
-        
+
         for key, val in mapping.items():
             self.assertEqual(t1[key], val)
-        
+
         # delete leaf node
         del t1[13]
         for key, val in mapping.items():
@@ -61,27 +52,27 @@ class testBST(unittest.TestCase):
             # newly inserted values
             for key, val in B.items():
                 t[key] = val
-            
+
             for key, val in B.items():
                 self.assertEqual(t[key], val)
-            
+
             # modified values
             for key in B:
                 B[key] = randint(-1000, -1000)
                 t[key] = B[key]
-            
+
             for key, val in B.items():
                 self.assertEqual(t[key], val)
-            
+
             # insert some more new values
             I = self.case(ub)
             for key, val in I.items():
                 t[key] = val
                 B[key] = val
-            
+
             for key, val in B.items():
                 self.assertEqual(t[key], val)
-            
+
             # delete values one by one
             for key, val in B.items():
                 del t[key]
@@ -92,6 +83,7 @@ class testBST(unittest.TestCase):
                     else:
                         self.assertEqual(t[key], val)
             self.assertEqual(t.root, None)
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -11,6 +11,7 @@ def parse():
             mat[r0][idx] = int(ch)
     return r, c, mat
 
+
 def withinK(k, r, c, dist, mat):
     plus = []
     minus = []
@@ -22,7 +23,7 @@ def withinK(k, r, c, dist, mat):
 
     if not plus:
         return True
-    
+
     min_minus = min(minus)
     max_minus = max(minus)
     min_plus = min(plus)
@@ -31,10 +32,16 @@ def withinK(k, r, c, dist, mat):
     for r0 in range(r):
         for c0 in range(c):
             if not mat[r0][c0]:
-                max_distance = max(abs(min_plus - (r0 + c0)), abs(max_plus - (r0 + c0)), abs(min_minus - (r0 - c0)), abs(max_minus - (r0 - c0))) 
+                max_distance = max(
+                    abs(min_plus - (r0 + c0)),
+                    abs(max_plus - (r0 + c0)),
+                    abs(min_minus - (r0 - c0)),
+                    abs(max_minus - (r0 - c0)),
+                )
                 if max_distance <= k:
                     return True
     return False
+
 
 def solve(r, c, mat):
     queue = deque()
@@ -53,7 +60,7 @@ def solve(r, c, mat):
                 if 0 <= r1 < r and 0 <= c1 < c and dist[r1][c1] == float('inf'):
                     dist[r1][c1] = curr
                     queue.append((r1, c1))
-    
+
     left, right = 0, r + c
     while left < right:
         k = (left + right) // 2
@@ -62,10 +69,11 @@ def solve(r, c, mat):
         else:
             left = k + 1
     return left
-        
-if __name__ == "__main__":
+
+
+if __name__ == '__main__':
     n = int(input())
     for i in range(1, n + 1):
         r, c, mat = parse()
         ans = solve(r, c, mat)
-        print("Case #{}: {}".format(i, ans))
+        print('Case #{}: {}'.format(i, ans))

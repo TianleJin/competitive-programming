@@ -31,42 +31,42 @@ typedef pair<int, int> pii;
 const int mxn = 2e7;
 int factorCnt[mxn + 1];
 int main() {
-	ios::sync_with_stdio(false);
-	cin.tie(0);
-	for (int i = 2; i <= mxn; i++) {
-		if (factorCnt[i] == 0) {
-			for (int j = i; j <= mxn; j += i) {
-				factorCnt[j]++;
-			}
-		}
-	}
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+    for (int i = 2; i <= mxn; i++) {
+        if (factorCnt[i] == 0) {
+            for (int j = i; j <= mxn; j += i) {
+                factorCnt[j]++;
+            }
+        }
+    }
 
-	int T;
-	cin >> T;
-	while (T--) {
-		int c, d, x;
-		cin >> c >> d >> x;
-		ll ans = 0;
+    int T;
+    cin >> T;
+    while (T--) {
+        int c, d, x;
+        cin >> c >> d >> x;
+        ll ans = 0;
 
-		int i;
-		for (i = 1; i * i < x; i++) {
-			if (x % i == 0) {
-				if ((x / i + d) % c == 0) {
-					int m = (x / i + d) / c;
-					ans += 1LL << factorCnt[m];
-				}
-				if ((i + d) % c == 0) {
-					int m = (i + d) / c;
-					ans += 1LL << factorCnt[m];
-				}
-			}
-		}
-		if (i * i == x) {
-			if ((i + d) % c == 0) {
-				int m = (i + d) / c;
-				ans += 1LL << factorCnt[m];
-			}
-		}
-		cout << ans << endl;
-	}
+        int i;
+        for (i = 1; i * i < x; i++) {
+            if (x % i == 0) {
+                if ((x / i + d) % c == 0) {
+                    int m = (x / i + d) / c;
+                    ans += 1LL << factorCnt[m];
+                }
+                if ((i + d) % c == 0) {
+                    int m = (i + d) / c;
+                    ans += 1LL << factorCnt[m];
+                }
+            }
+        }
+        if (i * i == x) {
+            if ((i + d) % c == 0) {
+                int m = (i + d) / c;
+                ans += 1LL << factorCnt[m];
+            }
+        }
+        cout << ans << endl;
+    }
 }

@@ -1,5 +1,6 @@
 it = lambda: list(map(int, input().strip().split()))
 
+
 def solve():
     X, K, D = it()
     X = abs(X)

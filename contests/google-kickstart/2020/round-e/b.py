@@ -1,7 +1,6 @@
-from collections import defaultdict
 it = lambda: list(map(int, input().strip().split()))
 INF = float('inf')
-MOD = 10 ** 9 + 7
+MOD = 10**9 + 7
 
 
 def solve():
@@ -13,13 +12,13 @@ def solve():
     for a in [A, B, C]:
         if a == 0 or a > N:
             return ''
-    
+
     if N == 1:
         if A == B == C == 1:
             return '1'
         else:
             return ''
-    
+
     if N == 2:
         if A == B == C == 2:
             return '1 1'
@@ -29,10 +28,10 @@ def solve():
             return '1 2'
         else:
             return ''
-    
+
     if A == B == C == 1:
         return ''
-        
+
     ans = [0] * N
 
     i = 0
@@ -42,7 +41,7 @@ def solve():
     if A - C > 0:
         ans[i] = 2
         i += 1
-    
+
     j = N - 1
     for _ in range(max(0, B - C - 1)):
         ans[j] = 1

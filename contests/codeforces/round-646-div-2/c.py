@@ -1,4 +1,3 @@
-from functools import lru_cache
 MOD = 998244353
 
 
@@ -9,11 +8,11 @@ def solve():
     M = len(T)
 
     dp = [[0] * N for _ in range(N)]
-    
+
     for j in range(N):
         if j >= M or S[0] == T[j]:
             dp[j][j] = 2
-    
+
     for i in range(2, N + 1):
         for j in range(N - i + 1):
             k = j + i - 1

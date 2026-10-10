@@ -31,14 +31,14 @@ def solve():
         if A[mex] < N:
             assert C[A[mex]] > 0
             C[A[mex]] -= 1
-        
+
         A[mex] = mex
         C[mex] += 1
-    
+
     for i in range(N):
         if A[i] == i:
             continue
-            
+
         mex = A[i]
         A[i] = N
         k += 1
@@ -50,7 +50,7 @@ def solve():
             tmp = A[mex]
             A[mex] = mex
             mex = tmp
-    
+
     print(k)
     print(' '.join(map(str, [i + 1 for i in R])))
 

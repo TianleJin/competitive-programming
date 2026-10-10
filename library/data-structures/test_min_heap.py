@@ -4,13 +4,12 @@ from min_heap import minHeap
 
 
 class testMinHeap(unittest.TestCase):
-
     def case(self, ub):
         s = randint(1, ub)
         return [randint(-1000, 1000) for _ in range(s)]
 
     def test_heapify(self):
-        # trivial case 
+        # trivial case
         my_heap = minHeap([])
         my_heap.heapify()
         self.assertEqual(my_heap.heap, [0])
@@ -43,7 +42,7 @@ class testMinHeap(unittest.TestCase):
         for _ in range(100):
             my_heap = minHeap(self.case(ub))
             self.assertTrue(my_heap.check())
-        
+
         # large cases
         ub = 1000
         for _ in range(50):
@@ -66,7 +65,7 @@ class testMinHeap(unittest.TestCase):
             for val in N:
                 my_heap.heappush(val)
                 self.assertTrue(my_heap.check())
-        
+
         # medium cases
         ub = 50
         for _ in range(100):
@@ -104,7 +103,7 @@ class testMinHeap(unittest.TestCase):
                 self.assertEqual(my_heap.size, S + 1)
                 S += 1
             self.assertTrue(my_heap.check())
-    
+
     def test_heappop(self):
         # small cases
         ub = 10
@@ -117,7 +116,7 @@ class testMinHeap(unittest.TestCase):
                 self.assertEqual(my_heap.heappop(), N.pop())
                 self.assertEqual(my_heap.size, S - 1)
                 S -= 1
-        
+
         # medium cases
         ub = 50
         for _ in range(100):
@@ -129,7 +128,7 @@ class testMinHeap(unittest.TestCase):
                 self.assertEqual(my_heap.heappop(), N.pop())
                 self.assertEqual(my_heap.size, S - 1)
                 S -= 1
-        
+
         # large cases
         ub = 1000
         for _ in range(50):

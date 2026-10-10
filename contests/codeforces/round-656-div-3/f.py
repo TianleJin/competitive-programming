@@ -1,5 +1,7 @@
 from collections import deque, defaultdict
+
 it = lambda: list(map(int, input().strip().split()))
+
 
 def solve():
     n, k = it()
@@ -35,6 +37,7 @@ def solve():
                     vis.add(y)
                     queue.append(y)
     return ans
+
 
 if __name__ == '__main__':
     T = int(input())

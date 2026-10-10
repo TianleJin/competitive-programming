@@ -1,4 +1,5 @@
 from collections import defaultdict
+
 it = lambda: list(map(int, input().strip().split()))
 INF = float('inf')
 
@@ -27,7 +28,7 @@ def solve():
         u, v = it()
         x, y = min(u, v), max(u, v)
         E[x].append(y)
-    
+
     for u in range(1, N + 1):
         E[u].sort()
 
@@ -47,7 +48,7 @@ def solve():
             cur += N + 1 - u
         for v in E[u][1:]:
             if find(par, v) != find(par, u):
-                cur -= (N + 1 - v)
+                cur -= N + 1 - v
                 union(rnk, par, u, v)
         ans += cur
     return ans

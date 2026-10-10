@@ -1,6 +1,7 @@
 def solve():
     command = input().strip()
-    memo = {'N':(-1, 0), 'S':(1, 0), 'E': (0, 1), 'W':(0, -1)}
+    memo = {'N': (-1, 0), 'S': (1, 0), 'E': (0, 1), 'W': (0, -1)}
+
     def dfs(command):
         move = [0, 0]
         n = len(command)
@@ -19,7 +20,7 @@ def solve():
                     if ch1 == '(' or ch1 == ')':
                         open += 1 if ch1 == '(' else -1
                         if open == 0:
-                            x, y = dfs(command[i + 2:j])
+                            x, y = dfs(command[i + 2 : j])
                             move[0] += multiplier * x
                             move[1] += multiplier * y
                             i = j + 1
@@ -30,15 +31,16 @@ def solve():
                 move[1] += y
                 i += 1
         return move
+
     move = dfs(command)
-    move[0] %= (10 ** 9)
-    move[1] %= (10 ** 9)
+    move[0] %= 10**9
+    move[1] %= 10**9
     move[0] += 1
     move[1] += 1
     return move
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     T = int(input())
     for t in range(1, T + 1):
         move = solve()

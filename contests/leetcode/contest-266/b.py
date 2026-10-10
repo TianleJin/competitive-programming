@@ -1,6 +1,6 @@
 class Solution:
     def countVowels(self, word: str) -> int:
-        vowels = set("aeiou")
+        vowels = set('aeiou')
         ans = 0
         for i in range(len(word)):
             if word[i] in vowels:

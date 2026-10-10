@@ -21,8 +21,7 @@ void dfs(int u, int p = -1) {
             if (p != -1 && low[v] >= disc[u]) {
                 ans[u] = true;
             }
-        }
-        else if (v != p) {
+        } else if (v != p) {
             low[u] = min(low[u], disc[v]);
         }
     }
@@ -39,7 +38,8 @@ int main() {
     for (int i = 0; i < m; i++) {
         int a, b;
         cin >> a >> b;
-        a--; b--;
+        a--;
+        b--;
         g[a].push_back(b);
         g[b].push_back(a);
     }

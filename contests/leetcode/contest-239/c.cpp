@@ -3,7 +3,6 @@
 #include <algorithm>
 using namespace std;
 
-
 class Solution {
 public:
     int getMinSwaps(string num, int k) {
@@ -12,11 +11,11 @@ public:
         for (int i = 0; i < n; i++) {
             arr[i] = num[i];
         }
-        
+
         for (int i = 0; i < k; i++) {
             next_permutation(arr.begin(), arr.end());
         }
-        
+
         int ans = 0;
         for (int i = 0; i < n; i++) {
             if (num[i] != arr[i]) {

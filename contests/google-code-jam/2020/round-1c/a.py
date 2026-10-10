@@ -1,15 +1,9 @@
-
-direction = {
-    'N':(1, 0), 
-    'E':(0, 1), 
-    'S':(-1, 0), 
-    'W':(0, -1)
-}
+direction = {'N': (1, 0), 'E': (0, 1), 'S': (-1, 0), 'W': (0, -1)}
 
 
 def solve():
     Y, X, s = input().strip().split()
-    Y, X = int(Y), int(X) 
+    Y, X = int(Y), int(X)
 
     time = 0
     for move in s:

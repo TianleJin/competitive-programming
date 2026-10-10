@@ -6,7 +6,7 @@ def solve():
     a = n // x * x + y
     while a > n:
         a -= x
-    print(a) 
+    print(a)
 
 
 if __name__ == '__main__':

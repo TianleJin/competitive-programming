@@ -1,4 +1,5 @@
 from collections import defaultdict
+
 it = lambda: list(map(int, input().strip().split()))
 INF = float('inf')
 
@@ -15,11 +16,11 @@ def solve():
             c[H[j]] += 1
             f = max(f, c[H[j]])
             P[i][j] = j - i - f + 1
-    
+
     dp1 = [0] * (N + 1)
     for i in range(N):
         dp1[i + 1] = P[0][i]
-    
+
     ans = dp1[N]
     for k in range(1, K + 1):
         dp2 = [INF] * (N + 1)

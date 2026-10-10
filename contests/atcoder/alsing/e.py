@@ -1,10 +1,11 @@
 from heapq import heappush, heappop
+
 it = lambda: list(map(int, input().strip().split()))
 
 
 def greedy(A):
     ans = 0
-    A.sort(key=lambda x:x[0])
+    A.sort(key=lambda x: x[0])
     pq = []
     for k, a, b in A:
         ans += a
@@ -25,7 +26,7 @@ def solve():
             prefer_early.append([k, a, b])
         else:
             prefer_late.append([N - k, b, a])
-    
+
     ans = 0
     ans += greedy(prefer_early)
     ans += greedy(prefer_late)

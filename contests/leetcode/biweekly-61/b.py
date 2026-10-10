@@ -6,9 +6,9 @@ class Solution:
     def findOriginalArray(self, changed: List[int]) -> List[int]:
         if len(changed) % 2 == 1:
             return []
-        
+
         cnt = Counter(changed)
-        
+
         ans = []
         for num in sorted(cnt.keys()):
             while cnt[num] > 0:

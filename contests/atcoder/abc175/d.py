@@ -1,4 +1,5 @@
 from collections import deque
+
 it = lambda: list(map(int, input().strip().split()))
 
 
@@ -12,9 +13,9 @@ def maximise(R, cycle):
         cur += num
         while queue and i + 1 - queue[0] > R:
             queue.popleft()
-        if queue: 
+        if queue:
             ans = max(ans, cur - dp[queue[0]])
-        while queue and dp[queue[-1]] >= cur: 
+        while queue and dp[queue[-1]] >= cur:
             queue.pop()
         queue.append(i + 1)
         dp[i + 1] = cur
@@ -49,7 +50,7 @@ def solve():
                 if curr == first:
                     break
             cycles.append(cycle)
-    
+
     ans = float('-inf')
     for cycle in cycles:
         ans = max(ans, get(K, cycle))

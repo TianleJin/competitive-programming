@@ -1,4 +1,5 @@
 from fractions import Fraction
+
 it = lambda: list(map(int, input().strip().split()))
 
 T = int(input())
@@ -12,7 +13,7 @@ for tt in range(1, T + 1):
         for j in range(Q):
             if a[j] == 'T':
                 ans[i] ^= 1 << j
-    
+
     p = []
     for msk in range(1 << Q):
         calc = [0] * N
@@ -40,4 +41,4 @@ for tt in range(1, T + 1):
             ret.append('F')
             exp += Fraction(f, f + t)
 
-    print("Case #{}: {} {}/{}".format(tt, ''.join(ret), exp.numerator, exp.denominator))
+    print('Case #{}: {} {}/{}'.format(tt, ''.join(ret), exp.numerator, exp.denominator))

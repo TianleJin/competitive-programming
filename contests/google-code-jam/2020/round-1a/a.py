@@ -1,12 +1,3 @@
-from sys import setrecursionlimit
-from math import sqrt, ceil, factorial, gcd
-from collections import defaultdict as ddt 
-from collections import deque 
-from bisect import bisect_left, bisect_right
-from heapq import heapify, heappush, heappop, nlargest, nsmallest
-from itertools import permutations, combinations, zip_longest
-
-
 istr = lambda: input().strip()
 istrl = lambda: input().strip().split()
 iint = lambda: int(input())
@@ -14,7 +5,7 @@ iintl = lambda: list(map(int, input().strip().split()))
 
 
 def mergePrefix(prefixes):
-    ans = ""
+    ans = ''
     for p in prefixes:
         if len(p) > len(ans):
             ans = p
@@ -44,7 +35,7 @@ def solve(N, strs):
     return ans
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     T = iint()
     for t in range(1, T + 1):
         N = iint()

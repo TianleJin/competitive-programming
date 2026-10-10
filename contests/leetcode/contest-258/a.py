@@ -3,4 +3,4 @@ class Solution:
         if ch not in word:
             return word
         idx = word.find(ch)
-        return word[:idx+1][::-1] + word[idx+1:]
+        return word[: idx + 1][::-1] + word[idx + 1 :]

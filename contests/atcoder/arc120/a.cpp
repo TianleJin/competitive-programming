@@ -30,19 +30,19 @@ typedef long long ll;
 typedef pair<int, int> pii;
 
 int main() {
-	int n;
-	cin >> n;
+    int n;
+    cin >> n;
 
-	vector<ll> a(n);
-	for (int i = 0; i < n; i++) {
-		cin >> a[i];
-	}
+    vector<ll> a(n);
+    for (int i = 0; i < n; i++) {
+        cin >> a[i];
+    }
 
-	ll ans = 0, mxm = 0, pre = 0;
-	for (int i = 0; i < n; i++) {
-		mxm = max(mxm, a[i]);
-		pre += a[i];
-		ans += pre;
-		cout << ans + mxm * (i + 1) << endl;
-	}
+    ll ans = 0, mxm = 0, pre = 0;
+    for (int i = 0; i < n; i++) {
+        mxm = max(mxm, a[i]);
+        pre += a[i];
+        ans += pre;
+        cout << ans + mxm * (i + 1) << endl;
+    }
 }

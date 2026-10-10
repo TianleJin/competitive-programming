@@ -1,5 +1,3 @@
-from random import randint
-
 it = lambda: list(map(int, input().strip().split()))
 
 T = int(input())
@@ -15,11 +13,12 @@ for tt in range(1, T + 1):
         prime[i] = p
         count[i] = n
         total += p * n
-    
+
     prime = prime[::-1]
     count = count[::-1]
-    
+
     ans = [0]
+
     def dfs(i, total, target):
         if total > target:
             return
@@ -29,11 +28,11 @@ for tt in range(1, T + 1):
             return
 
         if target <= ans[0]:
-            return 
+            return
 
         if i == len(prime):
             return
-        
+
         c = 1
         new_total = total
         new_target = target
@@ -41,11 +40,12 @@ for tt in range(1, T + 1):
             new_total *= prime[i]
             new_target -= prime[i]
             dfs(i + 1, new_total, new_target)
-            if new_total > new_target: break
+            if new_total > new_target:
+                break
             c += 1
 
         dfs(i + 1, total, target)
 
     dfs(0, 1, total)
 
-    print("Case #{}: {}".format(tt, ans[0]))
+    print('Case #{}: {}'.format(tt, ans[0]))

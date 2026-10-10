@@ -6,11 +6,11 @@ class Solution:
         mxx = 0
         for ride in rides:
             mxx = max(mxx, ride[1])
-            
+
         rides.sort()
-        
+
         dp = [0] * (mxx + 1)
-        
+
         j = 0
         for i in range(1, mxx + 1):
             while j < len(rides) and rides[j][0] == i:
